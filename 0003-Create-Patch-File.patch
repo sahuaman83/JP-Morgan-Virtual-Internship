@@ -1,0 +1,48 @@
+From 2e7b9fd65201a9fee3c8063f11fc208f096e389f Mon Sep 17 00:00:00 2001
+From: Aman Sahu <sahuaman83@gmail.com>
+Date: Sun, 10 May 2020 06:49:51 +0530
+Subject: [PATCH] Create Patch File
+
+---
+ src/DataManipulator.ts | 4 ++--
+ src/Graph.tsx          | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/DataManipulator.ts b/src/DataManipulator.ts
+index 6be5ea9..23a61cf 100644
+--- a/src/DataManipulator.ts
++++ b/src/DataManipulator.ts
+@@ -1,7 +1,7 @@
+ import { ServerRespond } from './DataStreamer';
+ 
+ export interface Row {
+-    price_abc: number,
++    price_abc: number, // we modified interface accordingly
+     price_def: number,
+     ratio: number,
+     timestamp: Date,
+@@ -18,7 +18,7 @@ export class DataManipulator {
+    const ratio = priceABC / priceDEF;
+    const upperBound = 1 + 0.20;
+    const lowerBound = 1 - 0.20;
+-      return {
++      return { // here for time stamp alert we have done calculations
+           price_abc: priceABC,
+           price_def: priceDEF,
+           ratio ,
+diff --git a/src/Graph.tsx b/src/Graph.tsx
+index e278dc0..fb1c588 100644
+--- a/src/Graph.tsx
++++ b/src/Graph.tsx
+@@ -37,7 +37,7 @@ class Graph extends Component<IProps, {}> {
+     }
+     if (this.table) {
+       // Load the `table` in the `<perspective-viewer>` DOM reference.
+-      elem.load(this.table);
++      elem.load(this.table); // we modified attribute according to needs
+       elem.setAttribute('view', 'y_line');
+       elem.setAttribute('row-pivots', '["timestamp"]');
+       elem.setAttribute('columns', '["ratio", "lower_bound", "upper_bound", "trigger_alert"]');
+-- 
+2.24.1.windows.2
+

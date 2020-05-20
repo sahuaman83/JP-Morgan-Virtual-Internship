@@ -1,0 +1,34 @@
+From 7df469d4d0e2e06e7718c81054ab0857d622e36b Mon Sep 17 00:00:00 2001
+From: Aman Sahu <sahuaman83@gmail.com>
+Date: Sun, 10 May 2020 06:00:24 +0530
+Subject: [PATCH] Create Patch File
+
+---
+ src/Graph.tsx | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/src/Graph.tsx b/src/Graph.tsx
+index bc35ccd..5b95169 100644
+--- a/src/Graph.tsx
++++ b/src/Graph.tsx
+@@ -62,11 +62,12 @@ class Graph extends Component<IProps, {}> {
+       elem.setAttribute('column-pivots', '["stock"]');
+       elem.setAttribute('row-pivots', '["timestamp"]');
+       elem.setAttribute('columns', '["top_ask_price"]');
+-      elem.setAttribute('aggregates',`
+-      {"stock": "distinct count",
+-       "top_ask_price: "avg",
+-       "top_bid_price": "avg",
+-       "timestamp": "distinct count"}`);
++      elem.setAttribute('aggregates', JSON.stringify({
++      stock: "distinct count",
++       top_ask_price: "avg",
++       top_bid_price: "avg",
++       timestamp: "distinct count",
++       }));
+     }
+   }
+ 
+-- 
+2.24.1.windows.2
+
